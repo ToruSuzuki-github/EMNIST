@@ -1,0 +1,21 @@
+import emnistを利用すると、emnist.zipのダウンロードが自動で開始される。
+emnistは以下のディレクトリに保存される。
+~/.cache/emnist/emnist.zip
+ファイルサイズは536MB
+find -name "emnist.zip"で場所を確認できる
+2回目以降は同じコードを利用した場合でもダウンロードはされない。
+
+emnist..extract_training_samples('digits')でサンプル用データを24,0000個取得し、
+emnist..extract_test_samples('digits')でテスト用データを4,0000個取得する。
+戻り値は(データ、ラベル)である
+
+参考ページ
+https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
+https://qiita.com/fujin/items/128ed7188f7e7df74f2c
+EMNISTの論文引用
+Cohen, G., Afshar, S., Tapson, J., & van Schaik, A. (2017). EMNIST: an extension of MNIST to handwritten letters. Retrieved from http://arxiv.org/abs/1702.05373
+
+
+
+
+
