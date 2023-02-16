@@ -12,9 +12,9 @@ After pulling this repository, you can perform feature extraction and machine le
     <dt>Summary_EMNIST.py</dt>
     <dd>Program files used to actually know the contents of EMNIST.</dd>
     <dt>FeatureExtraction_EMNIST.py</dt>
-    <dd>Program files to perform feature extraction for EMNIST.Unprocessed pixel values and average pixel values per mesh can be extracted.We use an external library, emnist[^3], to download EMNIST.</dd>
+    <dd>Program files to perform feature extraction for EMNIST.Unprocessed pixel values and average pixel values per mesh can be extracted.We use an external library, emnist, to download EMNIST.</dd>
     <dt>kNN_EMNIST.py</dt>
-    <dd>Program file to apply k Nearest Neighbor[^2] to the features extracted by FeatureExtraction_EMNIST.py.</dd>
+    <dd>Program file to apply k Nearest Neighbor to the features extracted by FeatureExtraction_EMNIST.py.</dd>
     <dt>feature_extraction</dt>
     <dd>A directory of program files to implement each feature extraction method.</dd>
     <dt>EMNIST</dt>
@@ -33,8 +33,4 @@ After pulling this repository, you can perform feature extraction and machine le
 </dl> 
 
 # References
-[^1]:Cohen, G., Afshar, S., Tapson, J., & van Schaik, A. (2017). EMNIST: an extension of MNIST to handwritten letters. Retrieved from (http://arxiv.org/abs/1702.05373)
-
-[^2]:(https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)
-
-[^3]:(https://pypi.org/project/emnist/)
+[^1]:Cohen, G., Afshar, S., Tapson, J., & van Schaik, A. (2017). EMNIST: an extension of MNIST to handwritten letters. Retrieved from http://arxiv.org/abs/1702.05373
