@@ -132,10 +132,10 @@ def kNearestNeighbor(dataset_file_path,k_start,k_end):
 #コマンドライン引数の整理
 run_flag=False
 if argv[1]=='help':
-    stdout.write('\n【プログラムの用途】')
-    stdout.write('\nkNNを実行するプログラム')
-    stdout.write('\n【コマンドライン引数】')
-    stdout.write("\n<データセットcsvファイルのファイルパス ex:./EMNIST/feature/mesh/nomal/240000_mesh_3x3.csv> <k値の開始値> <k値の終了値>")
+    stdout.write('\n<<Usage of Program Files>>')
+    stdout.write('\nProgram file to apply k Nearest Neighbor to the specified data set (features).')
+    stdout.write('\n<<Details of command line arguments>>')
+    stdout.write("\n<File path of the dataset csv file. ex:./EMNIST/feature/mesh/nomal/240000_mesh_3x3.csv> <Starting value of k-value. Natural number.> <End value of k-value. Natural number.>")
     stdout.flush()
 elif os.path.isfile(argv[1]):
     dataset_file_path=argv[1]
@@ -153,16 +153,16 @@ elif os.path.isfile(argv[1]):
         except ValueError as e:
             raise(e)
     else:
-        stdout.write('\nコマンドライン引数の数が不正')
+        stdout.write('\nInvalid number of command line arguments.')
 else:
-    stdout.write('\nファイルパスが不正')
+    stdout.write('\nFile path is invalid.')
 #kNNの実行と結果処理
 result=False
 if run_flag:
     result=kNearestNeighbor(dataset_file_path,k_start,k_end)
 if result:
-    stdout.write('\n正常終了')
+    stdout.write('\nNormal termination')
 else:
-    stdout.write('\n異常終了')
+    stdout.write('\nAbnormal Termination')
 stdout.write('\n')
 stdout.flush()

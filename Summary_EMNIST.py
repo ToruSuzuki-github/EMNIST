@@ -3,6 +3,9 @@ import numpy as np
 import emnist
 from copy import copy
 
+if argv[1]=='help':
+    stdout.write('\nThis program file does not require a second command line argument or later.')
+
 #------------EMNIST to ndarray------------
 (training_data, training_label) = emnist.extract_training_samples('digits')
 (test_data, test_label) = emnist.extract_test_samples('digits')

@@ -7,19 +7,19 @@ unfinished_flag=False
 unfinished_data_num=1
 binary_threshold=128
 if unfinished_flag:
-    stdout.write('\n試験実行モード')
+    stdout.write('\nTest run mode')
     stdout.flush()
 
 
-stdout.write('\n実行開始 '+" ".join(argv))
+stdout.write('\nStart '+" ".join(argv))
 stdout.flush()
 result=False
 if argv[1]=='help':
-    stdout.write('\n【プログラムの用途】')
-    stdout.write('\nEMNISTのdigitsから特徴量を抽出するプログラム')
-    stdout.write('\n【コマンドライン引数】')
-    stdout.write("\nピクセル値特徴量: <'pixel_value'> <二値化するかどうか（True or False）>")
-    stdout.write("\nメッシュ特徴量: <'mesh'> <x軸方向の分割数> <y軸方向の分割数> <二値化するかどうか（True or False）> <余白行、列を削除するかどうか（True or False）>")
+    stdout.write('\n<<Usage of Program Files>>')
+    stdout.write('\nProgram to extract features from EMNIST digits.')
+    stdout.write('\n<<Details of command line arguments>>')
+    stdout.write("\Pixel Value Features: <'pixel_value'> <Binarization or not（True or False）>")
+    stdout.write("\nMesh Features: <'mesh'> <Number of divisions in x-axis direction> <Number of divisions along y-axis> <Binarization or not（True or False）> <Whether to delete marginal rows and columns.（True or False）>")
 #ピクセル値特徴量
 elif argv[1]=='pixel_value':
     if len(argv)==3 and argv[2] in {'True','False'}:
@@ -29,7 +29,7 @@ elif argv[1]=='pixel_value':
             binarization_flag=False
         result=ExtractionPixelValueFeature_EMNIST.featureExtraction(unfinished_flag,unfinished_data_num,binary_threshold,binarization_flag)
     else:
-        stdout.write('\nコマンドライン引数の第二引数以降が不正')
+        stdout.write('\nThe second and subsequent command line arguments are invalid.')
 #メッシュ特徴量
 elif argv[1]=='mesh':
     if len(argv)==6 and argv[4] in {'True','False'} and argv[5] in {'True','False'}:
@@ -48,13 +48,13 @@ elif argv[1]=='mesh':
         except ValueError as e:
             raise(e)
     else:
-        stdout.write('\nコマンドライン引数の第二引数以降が不正')
+        stdout.write('\nThe second and subsequent command line arguments are invalid.')
 else:
-    stdout.write('\nコマンドライン引数の第一引数が不正')
+    stdout.write('\nThe first argument of the command line argument is invalid')
 if result:
-    stdout.write('\n正常終了')
+    stdout.write('\nNormal termination')
 else:
-    stdout.write('\n異常終了')
-stdout.write('\n実行終了 '+" ".join(argv))
+    stdout.write('\nAbnormal Termination')
+stdout.write('\nCompleted '+" ".join(argv))
 stdout.write('\n')
 stdout.flush()
