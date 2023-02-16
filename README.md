@@ -5,20 +5,6 @@ This repository stores programs related to EMNIST that were created by the autho
 After pulling this repository, you can perform feature extraction and machine learning from EMNIST by running each python file in python3.
 
 # Detail
-
-## Directory Structure
-EMNIST---README.md
-
-       |-Summary_EMNIST.py
-
-       |-FeatureExtraction_EMNIST.py
-
-       |-kNN_EMNIST.py
-
-       |-feature_extraction
-
-       |-EMNIST
-
 ## Roles
 <dl>
     <dt>README.md</dt>
@@ -48,5 +34,7 @@ EMNIST---README.md
 
 # References
 > Cohen, G., Afshar, S., Tapson, J., & van Schaik, A. (2017). EMNIST: an extension of MNIST to handwritten letters. Retrieved from http://arxiv.org/abs/1702.05373
+
 > [sklearn.neighbors.KNeighborsClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)
+
 > [emnist](https://pypi.org/project/emnist/)
