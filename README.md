@@ -8,10 +8,15 @@ After pulling this repository, you can perform feature extraction and machine le
 
 ## Directory Structure
 EMNIST---README.md
+
        |-Summary_EMNIST.py
+
        |-FeatureExtraction_EMNIST.py
+
        |-kNN_EMNIST.py
+
        |-feature_extraction
+
        |-EMNIST
 
 ## Roles
