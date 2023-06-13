@@ -38,8 +38,6 @@ def SupportVectorMachine(dataset_file_path,kernel_kind,c_start,c_end,seed):
     #出力用辞書
     result_dict={}
     for regularization in range(c_start,c_end+1,1):
-        stdout.write("\nruning regularization-parameter="+str(regularization))
-        stdout.flush()
         #アルゴリズム設定(参照:)
         algorithm=SVC(C=regularization # 正則化パラメーター,自然数,デフォルト=1
                     ,kernel=kernel_kind # カーネルの種類,{"rbf":ガウスカーネル,"linear":線形,"poly":多項式,"sigmoid":シグモイド関数},デフォルト="rbf"
@@ -50,12 +48,20 @@ def SupportVectorMachine(dataset_file_path,kernel_kind,c_start,c_end,seed):
                     ,random_state=seed #乱数のシード,{整数:シードの指定,None:ランダムシード},デフォルト=None
         )
         #モデル構築（学習）
+        stdout.write("\n c="+str(regularization)+" train now")
+        stdout.flush()
         start_training_time=time.time()
         algorithm.fit(training_dataset,training_labels)
+        stdout.write("completed")
+        stdout.flush()
         #テスト実行
+        stdout.write("\n c="+str(regularization)+" test now")
+        stdout.flush()
         start_test_time=time.time()
         predict_result=algorithm.predict(test_dataset)
         end_test_time=time.time()
+        stdout.write("completed")
+        stdout.flush()
         #評価値算出
         result_dict[regularization]={"accuracy":accuracy_score(test_labels,predict_result)
                                     ,"precision_score":precision_score(test_labels,predict_result)

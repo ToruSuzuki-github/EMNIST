@@ -40,8 +40,6 @@ def kNearestNeighbor(dataset_file_path,k_start,k_end):
     #出力用辞書
     result_dict={}
     for k in range(k_start,k_end+1,1):
-        stdout.write("\nruning k="+str(k))
-        stdout.flush()
         #アルゴリズム設定(参照:https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)
         algorithm=KNeighborsClassifier(n_neighbors=k # 比較する学習データの数,整数,デフォルト=5
                                 ,weights=weight # 比較する学習データの重み,{"uniform":均等,"distance":学習データとの距離の逆数,ユーザー定義の関数,None},デフォルト="uniform
@@ -53,12 +51,20 @@ def kNearestNeighbor(dataset_file_path,k_start,k_end):
                                 #,n_jobs=None #近隣探索の際に並列実行するジョブ数,{整数,None},デフォルト=None
         )
         #モデル構築（学習）
+        stdout.write("\n k="+str(k)+" train now")
+        stdout.flush()
         start_training_time=time.time()
         algorithm.fit(training_dataset,training_labels)
+        stdout.write("completed")
+        stdout.flush()
         #テスト実行
+        stdout.write("\n k="+str(k)+" test now")
+        stdout.flush()
         start_test_time=time.time()
         predict_result=algorithm.predict(test_dataset)
         end_test_time=time.time()
+        stdout.write("completed")
+        stdout.flush()
         #評価値算出
         result_dict[k]={"accuracy":accuracy_score(test_labels,predict_result)
                         ,"precision_score":precision_score(test_labels,predict_result)
